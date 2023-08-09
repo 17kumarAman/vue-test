@@ -2,10 +2,10 @@
   <div>
     
     <h2>Parent Component</h2>
-    <!-- <button @click="sendMessage">Child ko message bhejo</button> -->
+    <button @click="sendMessage">Child ko message bhejo</button>
     <p>Child Message Recevied: {{ parentMessage }}</p>
 
-    <child message = 'hello from parent' @childEvent="updateMessage" />
+    <child :message = "msg"  @childEvent="updateMessage" />
 
     
     
@@ -16,8 +16,11 @@
 import child from './child.vue';
 import { ref } from 'vue';
 
+const msg = ref('')
 
-const props = defineProps(['Parent'])
+const sendMessage = () => {
+  msg.value = 'hello from parent'
+}
 
 
 const parentMessage = ref('');

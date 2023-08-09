@@ -10,14 +10,14 @@
 <script setup>
 
 
+
 const props = defineProps(['message'])
-let nm = (props.message.toUpperCase())
-
-
+console.log(props.message)
 const emits = defineEmits(['childEvent']);
 
 const sendMessage = () => {
-  console.log('child')
+  let nm = (props.message.toUpperCase())
+  console.log(nm)
   emits('childEvent', nm);
 };
 </script>
